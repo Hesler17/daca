@@ -45,7 +45,7 @@ public class MenuCrearUsuarioDbAction implements Serializable {
             Connection conn;
             Conexion newConexion = new Conexion();
             conn = newConexion.connect();
-            String sql = "insert into usuario(correo, password, nombre, apellido, id_rol, id_estado, fecha_creacion ) values('" + correo + "', '" + password + "', '" + nombre + "', '" + apellido + "', " + rol + ", 1, getDate())";
+            String sql = "insert into usuario(correo, password, nombre, apellido, id_rol, id_estado, fecha_creacion ) values('" + correo + "', '" + password + "', '" + nombre + "', '" + apellido + "', " + rol + ", 1, now())";
             Statement pst = conn.createStatement();
             int resultado = pst.executeUpdate(sql);
             if (resultado == 1) {
