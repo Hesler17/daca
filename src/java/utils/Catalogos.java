@@ -28,7 +28,7 @@ public class Catalogos {
      * Metodo que carga la lista de status
      * @return 
      */
-    public SelectItem[] cargarStatus(){
+    public SelectItem[] cargarEstado(){
         SelectItem[] options = new SelectItem[]{new SelectItem("-1", "-")};
         try {
             Connection conect;
@@ -105,7 +105,7 @@ public class Catalogos {
             Conexion conexion = new Conexion();
             conect = conexion.connect();
             Statement stmt = conect.createStatement(ResultSet. TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            String query = "select * from sp_load_roles()";
+            String query = "select id_rol, descripcion from rol where id_estado = 1";
             ResultSet rs = stmt.executeQuery(query);
             if (rs.last()) {
                 int size = rs.getRow();
